@@ -6,10 +6,15 @@ import string
 import math
 
 # 1. Use the Wikipedia python module and access any topic, as you will use that as your corpus, with a word limit of 1000 words. We chose Decision Problem.
-# Fetch from Wikipedia page
+# Fetch Wikipedia page
 wikipedia_page = wikipedia.page("Decision problem")
-training_text = wikipedia_page.content[:1000]  # Limit to 1000 characters
-print("Extracted text:", training_text, "\n")
+
+# Extract first 1000 words
+training_text = ' '.join(wikipedia_page.content.split()[:1000])  # Limit to 1000 words
+
+# Display extracted text
+print("Extracted Training Text (First 1000 Words):\n")
+print(training_text)
 
 # 2. Train a Bigram Model
 # Tokenization - Converts text to lowercase, tokenizes words, and removes punctuation
