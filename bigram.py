@@ -51,9 +51,6 @@ for bigram, prob in bigram_probability.items():
 
 # Predict next word
 def predict_next_word(bigram_probability, current_word):
-    """
-    Predicts the most probable next word based on the given current word.
-    """
     candidates = {k[1]: v for k, v in bigram_probability.items() if k[0] == current_word}
     return max(candidates, key=candidates.get) if candidates else None
 
@@ -63,9 +60,6 @@ print(f"\nPredicted next word after 'problem': {predicted_word}")
 
 # Generate text
 def generate_bigram_text(bigram_model, start_word, length=10):
-    """
-    Generates a sequence of words based on the bigram model, starting from a given word.
-    """
     current_word = start_word.lower()
     generated_text = [current_word]
 
@@ -82,7 +76,7 @@ def generate_bigram_text(bigram_model, start_word, length=10):
 print("\nGenerated Text:", generate_bigram_text(bigram_probability, "decision", 10))
 
 # Evaluate The Test Sentence
-test_sentence = "a decision problem is a computational problem"
+test_sentence = "decision problem is a concept related to algorithms"
 test_tokenized_words = [word for word in word_tokenize(test_sentence.lower()) if word.isalnum()]
 
 print("\nEvaluation on Test Sentence:")
