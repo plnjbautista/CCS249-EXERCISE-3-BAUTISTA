@@ -53,9 +53,6 @@ for trigram, prob in trigram_probability.items():
 
 # Predict next word
 def predict_next_word(trigram_probability, first_word, second_word):
-    """
-    Predicts the most probable next word based on the given two-word sequence.
-    """
     candidates = {k[2]: v for k, v in trigram_probability.items() if k[0] == first_word and k[1] == second_word}
     return max(candidates, key=candidates.get) if candidates else None
 
@@ -65,9 +62,6 @@ print(f"\nPredicted next word after 'decision problem': {predicted_next_word}")
 
 # Generate text
 def generate_trigram_text(trigram_model, start_words, length=10):
-    """
-    Generates a sequence of words based on the trigram model, starting from two given words.
-    """
     first_word, second_word = start_words.lower().split()
     generated_text = [first_word, second_word]
 
@@ -85,7 +79,7 @@ def generate_trigram_text(trigram_model, start_words, length=10):
 print("\nGenerated Text:", generate_trigram_text(trigram_probability, "decision problem", 10))
 
 # Evaluate The Test Sentence
-test_sentence = "a decision problem is a computational problem"
+test_sentence = "decision problem is a concept related to algorithms"
 test_tokenized_words = [word for word in word_tokenize(test_sentence.lower()) if word.isalnum()]
 
 print("\nEvaluation on Test Sentence:")
