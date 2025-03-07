@@ -33,10 +33,6 @@ for bigram, count in bigram_frequency.items():
 # Computes bigram probabilities
 print("\nBigram Probabilities:")
 def compute_bigram_probabilities(tokennized_words):
-    """
-    Computes the probability of each bigram occurring based on unigram frequency.
-    P(word2 | word1) = Count(word1, word2) / Count(word1)
-    """
     bigram_probability = {bigram: count / unigram_frequency[bigram[0]] 
                     for bigram, count in bigram_frequency.items()}
     return bigram_probability
